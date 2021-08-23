@@ -1,0 +1,19 @@
+.icons {
+    display: flex;
+    justify-content: center;
+    width: 13%;
+    align-items: center;
+}
+
+
+.icon_image{
+    width: 50%;
+    height: 70%;
+}
+
+.icon_image:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    transform: scale(1.2,1.2);
+    transition-duration: 300ms;
+}

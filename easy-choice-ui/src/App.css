@@ -1,0 +1,6 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(241, 252, 248);
+
+}

@@ -1,0 +1,30 @@
+.row_2_navbar{
+    width: 22%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.do_choise{
+    background-color: rgb(202, 214, 214);
+    color: black;
+    height: 100%;
+    padding: 19px;   
+}
+.do_choise:hover{
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+    transition-duration: 400ms;
+
+}
+.navbar_btn{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.navbar_btn:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    
+}

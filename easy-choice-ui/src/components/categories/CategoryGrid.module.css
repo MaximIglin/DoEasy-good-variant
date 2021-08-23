@@ -1,0 +1,16 @@
+.categories{
+    margin-top: 40px;
+    width: 100%;
+    background-color: rgb(241, 252, 248);
+}
+.category_grid{
+    margin: auto;
+    width: 85%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 250px);
+    grid-column-gap:0px;
+
+
+    
+}

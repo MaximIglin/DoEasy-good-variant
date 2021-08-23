@@ -1,0 +1,13 @@
+.row_1_navigation{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 550;
+}
+.row_1_btn:hover{
+    cursor: pointer;
+    transform: scale(1.3, 1.3);
+    transition-duration: 400ms;
+
+}
