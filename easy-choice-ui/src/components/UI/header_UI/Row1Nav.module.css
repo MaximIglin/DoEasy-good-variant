@@ -1,7 +1,7 @@
 .row_1_navigation{
     width: 30%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 18px;
     font-weight: 550;
 }

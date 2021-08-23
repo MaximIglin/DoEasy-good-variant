@@ -3,7 +3,7 @@
     height: 100px;
     display: flex;
     flex-direction: column;
-    background-color: rgb(241, 252, 248);
+    background-color: rgb(235, 235, 235);
     color: rgb(92, 92, 92);
     font-family:"Liberation Mono", "Courier New", monospace;
     transition-duration: 2s;
