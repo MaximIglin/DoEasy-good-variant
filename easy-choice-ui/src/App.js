@@ -1,21 +1,21 @@
 import React from 'react';
+import MainPage from './pages/main.jsx';
 import './App.css';
-import CategoryGrid from './components/categories/CategoryGrid';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
-import Slider from './components/Slider/Slider';
-
+import { BrowserRouter, Route } from 'react-router-dom';
+import AboutPage from './pages/about.jsx';
 
 
 const App = () => {
   
   return(
-    <div className="App">
-      <Header/>
-      <Slider/>
-      <CategoryGrid/>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <Route path="/index">
+        <MainPage/>
+      </Route>
+      <Route path="/about">
+        <AboutPage/>
+      </Route>      
+    </BrowserRouter>
     
   )
 }
