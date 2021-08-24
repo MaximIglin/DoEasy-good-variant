@@ -1,0 +1,24 @@
+.review_container{
+    margin-top: 50px;
+    width: 400px;
+    height: 500px;
+    
+}
+
+.review_container:hover{
+    cursor: pointer;
+    transition-duration: 400ms;
+    transform: scale(1.2, 1.1);
+
+}
+
+.review_info{
+    padding: 7px 7px 7px 7px;
+    width: 60%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    font-size: 25px;
+    flex-direction: column;
+    color: white;
+}

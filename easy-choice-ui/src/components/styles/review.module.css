@@ -1,0 +1,42 @@
+.container{
+    width: 100%;
+}
+
+.review_content{
+    height: 100%;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.big_review_container{
+    margin-top: 50px;
+    width: 64.5%;
+    height: 500px;
+}
+
+.big_review_container:hover{
+    cursor: pointer;
+    transition-duration: 300ms;
+    transform: scale(1.1, 1.08);
+
+}
+
+.review_info{
+    padding: 7px 7px 7px 7px;
+    width: 60%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    font-size: 25px;
+    flex-direction: column;
+    color: white;
+}
+
+.short_big_review_text{
+    display: flex;
+    flex-direction: column;
+}
