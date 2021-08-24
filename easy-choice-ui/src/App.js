@@ -20,6 +20,9 @@ const App = () => {
       <Route path="/rewiews">
            <Rewiew/>
       </Route>
+      <Route path="/category_item">
+           
+      </Route>
     </BrowserRouter>
     
   )
