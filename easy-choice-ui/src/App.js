@@ -9,12 +9,17 @@ const App = () => {
   
   return(
     <BrowserRouter>
+    
+      <Route exact path="/">
+          <MainPage/>
+      </Route>
       <Route path="/index">
-        <MainPage/>
+          <MainPage/>
       </Route>
       <Route path="/about">
-        <AboutPage/>
-      </Route>      
+           <AboutPage/>
+      </Route>
+            
     </BrowserRouter>
     
   )
