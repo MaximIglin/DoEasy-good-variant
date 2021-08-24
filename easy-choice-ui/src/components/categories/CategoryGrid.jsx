@@ -16,7 +16,7 @@ const CategoryGrid = () => {
     },[])
 
     return (
-        <div className={classes.categories}>
+        <div className={classes.categories} id="category">
             <div className={classes.category_grid}>
                 {category.map(category => 
                     <CategoryItem category={category} key={category.id}/>)}

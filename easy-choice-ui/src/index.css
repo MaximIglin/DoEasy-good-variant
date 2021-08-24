@@ -9,3 +9,7 @@ body{
   flex-direction: column;
   background-color: rgb(241, 252, 248);
 }
+
+html{
+  scroll-behavior: smooth;
+}

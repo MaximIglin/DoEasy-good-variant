@@ -10,7 +10,8 @@
     background-color: rgb(202, 214, 214);
     color: black;
     height: 100%;
-    padding: 19px;   
+    padding: 19px; 
+    text-decoration: none;  
 }
 .do_choise:hover{
     background-color: rgb(233, 233, 233);
