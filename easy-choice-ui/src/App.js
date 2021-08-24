@@ -13,13 +13,10 @@ const App = () => {
       <Route exact path="/">
           <MainPage/>
       </Route>
-      <Route path="/index">
-          <MainPage/>
-      </Route>
       <Route path="/about">
            <AboutPage/>
       </Route>
-            
+
     </BrowserRouter>
     
   )
