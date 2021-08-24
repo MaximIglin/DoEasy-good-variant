@@ -11,6 +11,7 @@ const Rewiew = () => {
         <div>
             <Header/>
                 <div className={classes.container}>
+                <h1 className={classes.OBZORI}>Обзоры</h1>
                 <div className={classes.review_content}>
                 <div className={classes.big_review_container} style={{backgroundImage:`url(https://3dnews.ru/assets/external/illustrations/2021/08/24/1047403/Xiaomi810298c.jpg)`,
                                                         backgroundSize: 'cover', 
