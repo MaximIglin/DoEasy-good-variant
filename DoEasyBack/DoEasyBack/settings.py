@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'static_data',
     'corsheaders',
-    'categories'
+    'categories',
+    'reviews'
     
 ]
 

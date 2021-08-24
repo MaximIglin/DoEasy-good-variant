@@ -16,18 +16,6 @@
     justify-content: space-between;
 }
 
-.big_review_container{
-    margin-bottom: 50px;
-    width: 64.5%;
-    height: 500px;
-}
-
-.big_review_container:hover{
-    cursor: pointer;
-    transition-duration: 300ms;
-    transform: scale(1.1, 1.08);
-
-}
 
 .review_info{
     padding: 7px 7px 7px 7px;
@@ -40,7 +28,3 @@
     color: white;
 }
 
-.short_big_review_text{
-    display: flex;
-    flex-direction: column;
-}

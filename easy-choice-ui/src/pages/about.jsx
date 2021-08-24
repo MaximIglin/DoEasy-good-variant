@@ -16,7 +16,7 @@ const AboutPage = () => {
                         <p className={classes.text}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam architecto voluptatibus eaque, labore inventore corrupti, ipsum quas iure quia vel aspernatur ex magnam explicabo quisquam quidem blanditiis ab. Sed.</p>
                     </div>
                     <div className={classes.about_photos}>
-                        <div className={classes.big_photo}><img src="https://www.ixbt.com/img/n1/news/2021/3/2/MacBook-Air-MacBook-Pro-i-Mac-mini-Noutbuki-6_large.jpg"className={classes.big_image}/></div>
+                        <div className={classes.big_photo}><img src="https://akket.com/wp-content/uploads/2020/03/Apple-MacBook-Air-2020-0.jpg"className={classes.big_image}/></div>
                         <div className={classes.small_photos}>
                             <img src="https://damsovet.net/wp-content/uploads/2021/01/samsung-galaxy-s21-plus-11.jpg" alt="" className={classes.small_image}/>
                             <img src="https://habrastorage.org/getpro/habr/upload_files/683/998/a5c/683998a5ca39c60e55b34c740cc9d97b.jpeg" alt="" className={classes.small_image}/>
