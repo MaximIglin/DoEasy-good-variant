@@ -7,4 +7,4 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = ['id', 'image_link', 'title'] 
+        fields = "__all__"

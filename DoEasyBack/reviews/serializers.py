@@ -1,3 +1,5 @@
+from django.db.models import fields
+from django.db.models.base import Model
 from rest_framework import serializers
 from .models import Review
 
@@ -5,4 +7,11 @@ class ReviewSerializer(serializers.ModelSerializer):
     """This serializer for Review-model"""
     class Meta:
         model = Review
-        fields = ['id','review_preview_link','title','review_short_text','review_all_text','author']
+        fields = "__all__"
+
+
+class ReviewDetailSerializer(serializers.ModelSerializer):
+    """This serializer for detail view of Review-model"""
+    class Meta:
+        model = Review
+        fields = "__all__"

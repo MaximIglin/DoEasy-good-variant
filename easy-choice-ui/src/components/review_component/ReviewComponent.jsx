@@ -1,10 +1,12 @@
 import React from "react"
 import classes from "./review_comp.module.css"
+import { Link } from "react-router-dom"
 
 
 const ReviewComp = (props) => {
     return(
-        <div className={classes.review_container} style={{backgroundImage:`url(${props.review.review_preview_link})`,
+        <Link to="reviews/name" style={{ textDecoration: 'none', color: 'white' }}>
+            <div className={classes.review_container} style={{backgroundImage:`url(${props.review.review_preview_link})`,
                                                         backgroundSize: 'cover', 
                                                         backgroundPosition: 'center center',
                                                         backgroundRepeat: 'no-repeat',}}>
@@ -14,6 +16,7 @@ const ReviewComp = (props) => {
             <div className={classes.date}>дата</div>
         </div>    
         </div>
+        </Link>
     )
 }
 export default ReviewComp;

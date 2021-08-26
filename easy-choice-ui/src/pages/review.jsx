@@ -5,6 +5,8 @@ import Header from '../components/Header/Header';
 import ReviewComp from "../components/review_component/ReviewComponent";
 import axios  from "axios";
 import BigReviewComp from "../components/review_component/BigReviewCom";
+import { Link } from "react-router-dom";
+
 
 
 const Rewiew = () => {
@@ -32,7 +34,7 @@ const Rewiew = () => {
                 ?<h1></h1>
                 :<div className={classes.review_content}>
                             {review_data.slice(0,1).map(big=>
-                                <BigReviewComp big={big} key={big.id} />)}
+                            <BigReviewComp big={big} key={big.id} />)}
                            {review_data.slice(1).map(review =>
                             <ReviewComp review={review} key={review.id}/>)}
                     </div>

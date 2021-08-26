@@ -8,6 +8,8 @@ class Review(models.Model):
     review_short_text = models.TextField("Краткое содержание")
     review_all_text = models.TextField("Полное содержание")
     author = models.CharField("Автор обзора",max_length=100)
+    reviews_video_link = models.CharField("Ссылка на видео с обзором",max_length=300, blank=True)
+    reviews_photos = models.JSONField("Массив ссылок на фото",null=True, blank = True)
     
     class Meta:
         verbose_name = "Обзоры"
