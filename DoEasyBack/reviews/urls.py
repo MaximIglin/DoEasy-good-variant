@@ -12,3 +12,4 @@ router = SimpleRouter()
 router.register('api/reviews',ReviewViewSet)
 
 urlpatterns += router.urls
+##test
