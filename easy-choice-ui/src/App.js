@@ -23,7 +23,7 @@ const App = () => {
       </Route>
       <Route path="/category_item">
       </Route>
-      <Route path="/reviews/name">
+      <Route path="/reviews/:id" >
             <FullReview/>
       </Route>
     </BrowserRouter>

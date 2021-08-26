@@ -13,12 +13,12 @@ const Rewiew = () => {
 
     
     const [review_data, setReview] = useState([])
-    const [isReviewLoaded, setisReviewLoaded] = useState(false)
+    const [isReviewsLoaded, setisReviewsLoaded] = useState(false)
     async function fetchReviewData(){
-        setisReviewLoaded(true)
+        setisReviewsLoaded(true)
         const response = await axios.get("http://localhost:8000/api/reviews/")
         setReview(response.data)
-        setisReviewLoaded(false)
+        setisReviewsLoaded(false)
     }
 
     useEffect( () => {
@@ -30,7 +30,7 @@ const Rewiew = () => {
             <Header/>
                 <div className={classes.container}>
                 <h1 className={classes.OBZORI}>Обзоры</h1>
-                {isReviewLoaded
+                {isReviewsLoaded
                 ?<h1></h1>
                 :<div className={classes.review_content}>
                             {review_data.slice(0,1).map(big=>

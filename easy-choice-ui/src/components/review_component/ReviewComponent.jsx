@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 const ReviewComp = (props) => {
     return(
-        <Link to="reviews/name" style={{ textDecoration: 'none', color: 'white' }}>
+        <Link to={`/reviews/${props.review.id}`} style={{ textDecoration: 'none', color: 'white' }}>
             <div className={classes.review_container} style={{backgroundImage:`url(${props.review.review_preview_link})`,
                                                         backgroundSize: 'cover', 
                                                         backgroundPosition: 'center center',
