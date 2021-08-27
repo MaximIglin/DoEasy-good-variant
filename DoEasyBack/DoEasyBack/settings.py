@@ -19,10 +19,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken', # новые 
+    'rest_auth', # новые 
+    'django.contrib.sites', # новые 
+    'allauth', # новые 
+    'allauth.account', # новые 
+    'allauth.socialaccount', # новые 
+    'rest_auth.registration',
+
+
     'static_data',
     'corsheaders',
     'categories',
-    'reviews'
+    'reviews',
+    'user'
     
 ]
 
@@ -101,3 +111,28 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+AUTH_USER_MODEL = 'user.CustomUser'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+
+SITE_ID = 1 
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_UNIQUE_EMAIL = True
+
+REST_FRAMEWORK = {    
+    'DATETIME_FORMAT': "%m/%d/%Y %I:%M%P", 
+    'DEFAULT_AUTHENTICATION_CLASSES': [       
+    'rest_framework.authentication.TokenAuthentication',    
+    ],
+}

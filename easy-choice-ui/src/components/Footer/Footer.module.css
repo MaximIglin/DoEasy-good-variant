@@ -1,10 +1,27 @@
+
 .footer{
     height: 70px;
     width: 100%;
     background-color: rgb(30, 30, 30);
     margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    font-family:"Liberation Mono", "Courier New", monospace;
 }
 
 .footer_text{
-    color: wheat;
+    font-size: 18px;
+    margin-top: 20px;
+    color: white;
+}
+
+.footer_logotype{
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.footer_contacts{
+    font-size: 18px;
+    margin-top: 15px;
+    color: white;
 }

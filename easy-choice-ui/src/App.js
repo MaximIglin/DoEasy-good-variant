@@ -5,6 +5,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import AboutPage from './pages/about.jsx';
 import Rewiew from './pages/review.jsx';
 import FullReview from './pages/FullReview.jsx';
+import Login from './pages/users_system/Login.jsx';
+import Signup from './pages/users_system/Registration.jsx';
+import Logout from './pages/users_system/Logout.jsx';
 
 
 const App = () => {
@@ -25,6 +28,15 @@ const App = () => {
       </Route>
       <Route path="/reviews/:id" >
             <FullReview/>
+      </Route>
+      <Route exact path="/login">
+          <Login/>
+      </Route>
+      <Route exact path="/register">
+          <Signup/>
+      </Route>
+      <Route exact path="/logout">
+        <Logout/>
       </Route>
     </BrowserRouter>
     
