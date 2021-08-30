@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import classes from "./userspages.module.css";
+
 
 
 
@@ -48,32 +52,43 @@ const Login = () => {
   
     return (
       <div>
-        {loading === false && <h1>Login</h1>}
-        {errors === true && <h2>Cannot log in with provided credentials</h2>}
+        <Header/>
+        <div className={classes.userspage}>
+        {loading === false && <h1 className={classes.title}>Вход</h1>}
+        {errors === true && <h2 className={classes.error}>Проверьте введённые поля</h2>}
         {loading === false && (
           <form onSubmit={onSubmit}>
-            <label htmlFor='email'>Email address:</label> <br />
             <input
               name='email'
               type='email'
               value={email}
               required
               onChange={e => setEmail(e.target.value)}
+              className={classes.input}
+              placeholder="E-mail"
             />{' '}
             <br />
-            <label htmlFor='password'>Password:</label> <br />
+            
             <input
               name='password'
               type='password'
               value={password}
               required
               onChange={e => setPassword(e.target.value)}
+              className={classes.input}
+              placeholder="Пароль"
             />{' '}
             <br />
-            <input type='submit' value='Login' />
+            <input type='submit' value='Войти' className={classes.submit}/>
           </form>
+          
         )}
+        </div>
+         <Footer/>
+         
+          
       </div>
+     
     );
   };
   

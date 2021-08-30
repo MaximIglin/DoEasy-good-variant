@@ -14,7 +14,7 @@ const Header = () => {
                 <div className={classes.row_1_content}>
                     <div className={classes.header_city}>Москва</div>
                     <Row1Navigation/>
-                    <div className={classes.row_1_info}>iglin1488@gmail.com</div>
+                    <div className={classes.row_1_info}></div>
                 </div>
             </div>
             <div className={classes.header_row_2}>

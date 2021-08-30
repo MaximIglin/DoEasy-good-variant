@@ -136,3 +136,7 @@ REST_FRAMEWORK = {
     'rest_framework.authentication.TokenAuthentication',    
     ],
 }
+
+REST_AUTH_REGISTER_SERIALIZERS = {
+    "REGISTER_SERIALIZER":'user.serializers.CustomUserRegisterSerializer'
+    }
