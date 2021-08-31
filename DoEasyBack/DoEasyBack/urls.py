@@ -7,5 +7,6 @@ urlpatterns = [
     path('', include('static_data.urls')),
     path('', include('categories.urls')),
     path('', include('reviews.urls')),
+    path('', include('products.urls')),
     path('api/v1/users/', include ('user.urls'))
 ]

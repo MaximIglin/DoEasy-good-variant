@@ -35,9 +35,7 @@ const App = () => {
       <Route exact path="/register">
           <Signup/>
       </Route>
-      <Route exact path="/logout">
-        <Logout/>
-      </Route>
+
     </BrowserRouter>
     
   )

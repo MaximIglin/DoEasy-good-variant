@@ -5,6 +5,7 @@ class Category(models.Model):
     """This model describe category"""
     image_link = models.CharField('Ссылка на иконку категории', max_length=100)
     title = models.CharField('Название категории', max_length=30)
+    slug = models.SlugField(unique=True, default='',null=True)
 
     class Meta:
         verbose_name = "Категории"

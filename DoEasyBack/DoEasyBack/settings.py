@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'categories',
     'reviews',
+    'products',
     'user'
     
 ]

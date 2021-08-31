@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Fragment } from "react";
 import classes from "./Row2Icon.module.css";
 import { Link } from 'react-router-dom';
+import Logout from "../../../pages/users_system/Logout";
+
 
 
 const Row2Icon = () => {
@@ -28,6 +30,7 @@ const Row2Icon = () => {
     ])
 
     const [isAuth,setIsAuth] = useState(false)
+    const [modalActive, setModalActive] = useState(false)
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
@@ -43,7 +46,8 @@ const Row2Icon = () => {
             {isAuth
                 ? (<Fragment>
                     <div className={classes.row_2_icon}><Link to="/profile"><img src={icon[2].icon_link} className={classes.icon_image} /></Link></div>
-                    <div className={classes.row_2_icon}><Link to="/logout"><img src={icon[3].icon_link} className={classes.icon_image}/></Link></div>
+                    <div className={classes.row_2_icon} onClick={ () => setModalActive(true)}><img src={icon[3].icon_link} className={classes.icon_image} /></div>
+                    <Logout active={modalActive} setActive={setModalActive}/>
                 </Fragment>
                 )
                 : (<Fragment>

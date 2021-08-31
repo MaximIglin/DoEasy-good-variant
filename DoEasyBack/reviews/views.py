@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from .models import Review
-from rest_framework import serializers, viewsets
+from rest_framework import  viewsets
 from rest_framework.views import APIView
 from .serializers import ReviewSerializer, ReviewDetailSerializer
 

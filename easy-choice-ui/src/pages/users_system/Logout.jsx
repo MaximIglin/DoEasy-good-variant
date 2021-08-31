@@ -1,6 +1,7 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment, cloneElement } from 'react';
+import classes from "./userspages.module.css"
 
-const Logout = () => {
+const Logout = ({active, setActive}) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -30,12 +31,15 @@ const Logout = () => {
   };
 
   return (
-    <div>
+    <div className={active ? classes.logout_active : classes.logout} onClick={()=> setActive(false)}>
       {loading === false && (
-        <Fragment>
-          <h1>Are you sure you want to logout?</h1>
-          <input type='button' value='Logout' onClick={handleLogout} />
-        </Fragment>
+        <div className={classes.logout_content} onClick={el => el.stopPropagation()}>
+          <Fragment>
+            <h1>Вы уверенны, что хотите выйти?</h1>
+            <input type='button' value='Выйти' onClick={handleLogout} className={classes.submit}/>
+          </Fragment>
+        </div>
+
       )}
     </div>
   );
