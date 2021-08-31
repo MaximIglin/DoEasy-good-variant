@@ -22,8 +22,10 @@ const Signup = () => {
     }
   }, []);
 
+  
   const onSubmit = e => {
     e.preventDefault();
+
 
     const user = {
       email: email,
@@ -31,8 +33,9 @@ const Signup = () => {
       password2: password2,
       first_name: first_name,
       last_name: last_name,
-      birh_date: birth_date
+      birh_date: birth_date,
     };
+
 
     fetch('http://127.0.0.1:8000/api/v1/users/auth/register/', {
       method: 'POST',
@@ -51,12 +54,14 @@ const Signup = () => {
           setEmail('');
           setPassword1('');
           setPassword2('');
+          setFirstName('');
+          setLastName('');
+          setBirh('');
           localStorage.clear();
           setErrors(true);
         }
       });
   };
-
   return (
     <div>
       <Header/>
@@ -64,6 +69,35 @@ const Signup = () => {
       {loading === false && <h1 className={classes.title}>Регистрация</h1>}
       {errors === true && <h2 className={classes.error}>Проверьте введённые поля</h2>}
       <form onSubmit={onSubmit}>
+      <input
+          name='first_name'
+          type='text'
+          value={first_name}
+          onChange = {e => setFirstName(e.target.value)}
+          required
+          className = {classes.input}
+          placeholder = "Введите ваше имя"
+        />{' '}
+        <br />
+        <input
+          name='last_name'
+          type='text'
+          value={last_name}
+          onChange = {e => setLastName(e.target.value)}
+          className = {classes.input}
+          placeholder = "Введите ваше фамилию"
+        />{' '}
+        <br />
+        <input
+          name='birth_date'
+          type='text'
+          value={birth_date}
+          onChange = {e => setBirh(e.target.value)}
+          required
+          className = {classes.input}
+          placeholder="Введите дату в формате YYYY-MM-DD"
+        />{' '}
+        <br />
         <input
           name='email'
           type='email'
@@ -94,17 +128,8 @@ const Signup = () => {
           placeholder="Введите пароль повторно"
         />{' '}
         <br />
-        <input
-          name='first_name'
-          type='text'
-          value={first_name}
-          onChange = {e => setFirstName(e.target.value)}
-          required
-          className = {classes.input}
-          placeholder = "Введите ваше имя"
-        />{' '}
-        <br />
-        <input type='submit' value='Зарегистрироваться' className={classes.submit} />
+
+        <input type='submit' value='Зарегистрироваться' className={classes.submit}  />
       </form>
       </div>
       <Footer/>

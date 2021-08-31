@@ -7,7 +7,8 @@ const BigReviewComp = (props) =>{
     return(
         
             <div className={classes.big_review_container} style={{backgroundImage:`url(${props.big.review_preview_link})`,
-            backgroundSize: 'cover', 
+            backgroundSize: 'cover',
+            backgroundColor:"transparent", 
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat'}}>
             <Link to={`/reviews/${props.big.id}`} style={{ textDecoration: 'none', color: 'white' }}>

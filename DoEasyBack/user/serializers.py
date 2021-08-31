@@ -14,7 +14,7 @@ class UserSerializer(ModelSerializer):
 class CustomUserRegisterSerializer(RegisterSerializer):
     first_name = serializers.CharField(max_length = 30)
     last_name = serializers.CharField(max_length = 30)
-    birth_date = serializers.DateField()
+    birh_date = serializers.DateField()
 
     def save(self, request):
         user = super().save(request)
