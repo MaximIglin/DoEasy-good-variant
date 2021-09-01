@@ -8,6 +8,7 @@ import FullReview from './pages/FullReview.jsx';
 import Login from './pages/users_system/Login.jsx';
 import Signup from './pages/users_system/Registration.jsx';
 import CategoryDetail from './pages/category_detail.jsx';
+import ProductDetail from './pages/productdetail.jsx';
 
 const App = () => {
   
@@ -35,8 +36,12 @@ const App = () => {
           <Signup/>
       </Route>
 
-      <Route path="/category">
+      <Route path="/category/:slug">
         <CategoryDetail/>
+      </Route>
+
+      <Route path="/product/:slug">
+        <ProductDetail/>
       </Route>
 
     </BrowserRouter>

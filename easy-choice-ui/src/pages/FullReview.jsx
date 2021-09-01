@@ -9,7 +9,6 @@ import { useParams } from "react-router"
 const FullReview = () =>{
 
     const review_id = useParams().id
-    console.log(review_id)
     const [review, setReview] = useState("")
     const [isReviewLoad, setIsReviewLoad] = useState(false)
     

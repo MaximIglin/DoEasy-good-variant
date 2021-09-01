@@ -10,3 +10,8 @@ def get_products_by_category(category_slug):
     """This function is return products by category"""
     products_in_category = Product.objects.filter(category__slug = category_slug) 
     return products_in_category   
+
+def get_product_by_slug(product_slug):
+    """This fucntion is return product by id """
+    product = Product.objects.get(slug=product_slug)
+    return product    
