@@ -1,0 +1,57 @@
+.product_item{
+    padding: 5px 5px 5px 5px;
+    height: 370px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 3px solid pink;
+    align-items: center;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+
+.product_item:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition-duration: 500ms;
+}
+
+.product_image{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 78%;
+}
+
+.image{
+    width: 100%;
+}
+
+.product_name{
+    font-size: 23px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+}
+
+.product_price{
+    font-size: 17px;
+    color: rgb(99, 99, 99);
+    font-weight: 400;
+}
+
+.add_to_cart{
+    height: 30px;
+    width: 80%;
+    margin-bottom: 6px;
+    border:3px solid salmon;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.add_to_cart:hover{
+    background-color: salmon;
+    color: white;
+    transform: scale(1.05);
+    transition-duration: 300ms;
+}

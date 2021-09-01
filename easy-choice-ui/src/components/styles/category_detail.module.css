@@ -1,0 +1,55 @@
+.category_detail{
+    margin-top: 10px;
+    width: 100%;
+    border:3px solid cadetblue;
+}
+
+.category_content{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 92%;
+    border: 3px solid sienna;
+}
+
+.page_title{
+    font-size: 35px;
+    font-family: "Liberation Mono", "Courier New", monospace;
+    color: rgb(75, 75, 75);
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    border:3px solid red;
+    display: flex;
+    justify-content: space-between; 
+}
+
+.filter{
+    width: 23%;
+    height: 1000px;
+    border:3px solid green;
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    width: 72%;
+    display: flex;
+    flex-direction: column;
+    border:3px solid yellow;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+}
+
+.products_grid{
+    width: 98%;
+    height: max-content;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+

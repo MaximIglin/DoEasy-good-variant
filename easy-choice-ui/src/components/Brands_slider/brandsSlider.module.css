@@ -1,0 +1,35 @@
+.courus{
+    width: 98%;
+    height: 120px;
+}
+.brands_slider{
+    width: 98%;
+    height: 100px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.brand_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    color: white;
+    font-size: 35px;
+    border-radius: 10px;
+}
+
+.brand_item:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition-duration: 300ms;
+}
+
+.image{
+    height: 100%;
+}

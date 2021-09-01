@@ -7,8 +7,7 @@ import Rewiew from './pages/review.jsx';
 import FullReview from './pages/FullReview.jsx';
 import Login from './pages/users_system/Login.jsx';
 import Signup from './pages/users_system/Registration.jsx';
-import Logout from './pages/users_system/Logout.jsx';
-
+import CategoryDetail from './pages/category_detail.jsx';
 
 const App = () => {
   
@@ -34,6 +33,10 @@ const App = () => {
       </Route>
       <Route exact path="/register">
           <Signup/>
+      </Route>
+
+      <Route path="/category">
+        <CategoryDetail/>
       </Route>
 
     </BrowserRouter>
