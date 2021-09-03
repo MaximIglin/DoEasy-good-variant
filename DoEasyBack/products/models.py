@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.expressions import OrderBy
 from django.db.models.fields.related import ForeignKey
 from django.utils.translation import deactivate
 from categories.models import Category
@@ -113,6 +112,15 @@ class Smartphones(Product):
     display_diagnal = models.CharField("Диагональ экрана", max_length=10, default='')
     screen_resolution = models.CharField('Разрешение экрана', max_length=10, default=" x ")
     display_technology = models.CharField('Тип дисплея', max_length=20, default='')
+    cpu = models.CharField("Процессор", max_length=250, null=True)
+    number_of_processor_cores = models.PositiveIntegerField('Количество ядер процессора', null=True)
+    main_camera_mpix = models.CharField("Основная камера", max_length=10, null=True)
+    number_of_main_cameras = models.PositiveIntegerField('Количество основыных камер', null=True)
+    video_resolution = models.CharField("Максимальное разрешение видео-съемки",max_length=20, null=True)
+    front_camera_mpix = models.CharField("Фронтальная камера", max_length=10,null=True)
+    ram = models.PositiveIntegerField("Оперативная память (GB)", null=True)
+    rom = models.PositiveIntegerField("Встроенной памяти (GB)", null=True)
+    battery_capacity = models.CharField("Ёмкость аккумулятора",max_length=20, null = True)
     
 
     class Meta:
@@ -125,6 +133,12 @@ class Laptops(Product):
     display_diagnal = models.CharField("Диагональ экрана", max_length=10, default='')
     screen_resolution = models.CharField('Разрешение экрана', max_length=10, default=" x ")
     display_technology = models.CharField('Тип дисплея', max_length=20, default='')
+    cpu = models.CharField("Процессор", max_length=250, null=True)
+    number_of_processor_cores = models.PositiveIntegerField('Количество ядер процессора', null=True)
+    main_camera_mpix = models.CharField("Основная камера", max_length=10, null=True)
+    ram = models.PositiveIntegerField("Оперативная память (GB)", null=True)
+    rom = models.PositiveIntegerField("Встроенной памяти (GB)", null=True)
+    battery_capacity = models.CharField("Ёмкость аккумулятора",max_length=20 , null = True)
 
     class Meta:
         verbose_name = "Ноутбуки"

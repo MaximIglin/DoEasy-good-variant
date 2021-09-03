@@ -1,5 +1,3 @@
-from django.db.models import fields
-from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 from .models import Product, CartProduct, Cart, Customer, Smartphones, Laptops
 
@@ -26,7 +24,7 @@ class LaptopsSerializer(ModelSerializer):
         fields = "__all__"
 
     def to_representation(self, instance):
-        rep = super(SmartphonesSerializer, self).to_representation(instance)
+        rep = super(LaptopsSerializer, self).to_representation(instance)
         rep['category'] = instance.category.title
         rep['category_slug'] = instance.category.slug
         rep['brand'] = instance.brand.name
