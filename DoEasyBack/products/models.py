@@ -1,42 +1,74 @@
 from django.db import models
+from django.db.models.expressions import OrderBy
 from django.db.models.fields.related import ForeignKey
+from django.utils.translation import deactivate
 from categories.models import Category
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
+
+
 User = get_user_model()
+
+class Manufacturer_country(models.Model):
+    """This model is describe all couttries which you can choice at registration product"""
+    name = models.CharField("Страна", max_length=100)
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = "Страна производитель"
+    def __str__(self):
+        return self.name
 
 
 class Product(models.Model):
     """This model is describe all products"""
 
-    category = models.ForeignKey(Category, related_name="Категории", on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, verbose_name="Категория", on_delete=models.CASCADE, null=True)
     name = models.CharField("Название товара", max_length=50)
     slug = models.SlugField("Слаг",unique=True, max_length=200, default='')
+    brand = models.ForeignKey('Brand',verbose_name="Бренд", on_delete=models.CASCADE)
     image_link = models.CharField("Ссылка на изображение", max_length=300)
     description = models.TextField("Описание товара")
     price = models.DecimalField(max_digits=10,decimal_places=2, verbose_name="Цена")
+    manufecture_country = models.ForeignKey('Manufacturer_country', verbose_name="Страна производитель", on_delete=models.CASCADE, default='')
     stock = models.PositiveIntegerField("Остаток товара")
+    relise_year = models.PositiveIntegerField('Год релиза', default=2021)
+    color = models.CharField('Цвет', max_length=40, default='')
     available = models.BooleanField(default=True)
     created = models.DateField(auto_now=True)
     
 
     class Meta:
+        abstract = True
         ordering = ['available','id', 'name']
-        verbose_name = "Продукты"
         
 
     def __str__(self) -> str:
         return self.name    
 
 
+class Brand(models.Model):
+    """This model is describe all product's brands"""
+    name = models.CharField("Бренд", max_length=100)
+    slug = models.SlugField("Слаг", max_length=30, unique=True, default='')
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = "Бренды"
+
+    def __str__(self):
+        return self.name   
 
 class CartProduct(models.Model):
     """This model is describe products which contain in cart"""
     user = models.ForeignKey('Customer', verbose_name="Покупатель", on_delete=models.CASCADE)
     cart = models.ForeignKey('Cart', verbose_name="Корзина", on_delete=models.CASCADE, related_name="related_products")
-    product = models.ForeignKey(Product, verbose_name="Продукт", on_delete=models.CASCADE)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
     qty = models.PositiveIntegerField("Количество", default=1)
-    total_price = models.DecimalField(max_digits=10,decimal_places=2, verbose_name="Сумма заказа")
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Сумма заказа")
 
     class Meta:
         ordering = ['cart','id']
@@ -53,7 +85,7 @@ class Cart(models.Model):
     owner = models.ForeignKey('Customer', verbose_name='Владелец', on_delete= models.CASCADE)
     products = models.ManyToManyField(CartProduct, blank=True, related_name="related_carts")
     total_products = models.PositiveIntegerField(default=0)
-    final_price = models.DecimalField(max_digits=10,decimal_places=2, verbose_name="Сумма заказа")
+    final_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Сумма заказа")
     
     class Meta:
         ordering = ['id']
@@ -76,15 +108,25 @@ class Customer(models.Model):
         return (f"{self.user.first_name}")
 
 
-class Specification(models.Model):
-    """This model is describe all specifications of products""" 
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
-    name = models.CharField("Имя товара для характеристик", max_length=150)
+class Smartphones(Product):
+    """This model is describe all smartphone-products"""
+    display_diagnal = models.CharField("Диагональ экрана", max_length=10, default='')
+    screen_resolution = models.CharField('Разрешение экрана', max_length=10, default=" x ")
+    display_technology = models.CharField('Тип дисплея', max_length=20, default='')
+    
 
     class Meta:
-        ordering = ['object_id']
-        verbose_name = "Характеристики"
+        verbose_name = "Смартфоны"
 
-    def __str__(self) -> str:
-        return (f"Характеристики для товара {self.object_id}")
+
+
+class Laptops(Product):
+    """This model is describe all laptops-products"""
+    display_diagnal = models.CharField("Диагональ экрана", max_length=10, default='')
+    screen_resolution = models.CharField('Разрешение экрана', max_length=10, default=" x ")
+    display_technology = models.CharField('Тип дисплея', max_length=20, default='')
+
+    class Meta:
+        verbose_name = "Ноутбуки"
+    
+

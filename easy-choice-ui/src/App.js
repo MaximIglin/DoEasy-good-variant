@@ -36,7 +36,7 @@ const App = () => {
           <Signup/>
       </Route>
 
-      <Route path="/category/:slug">
+      <Route exact path="/category/:slug">
         <CategoryDetail/>
       </Route>
 

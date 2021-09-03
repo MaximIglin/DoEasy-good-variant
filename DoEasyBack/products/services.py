@@ -1,17 +1,24 @@
-from .models import Product, CartProduct, Cart, Customer, Specification
+from .models import Product, CartProduct, Cart, Customer, Smartphones, Laptops
 
-
-def get_all_products():
-    """This function is return all products"""
-    all_products_queryset = Product.objects.all()
-    return (all_products_queryset)
 
 def get_products_by_category(category_slug):
-    """This function is return products by category"""
-    products_in_category = Product.objects.filter(category__slug = category_slug) 
-    return products_in_category   
+    """This fuction is return all products by accepted category"""
+    if category_slug == "smartphones":
+        products = Smartphones.objects.all()
+        return products
+    elif category_slug == "laptops":
+        products = Laptops.objects.all()
+        return products    
+    return None    
 
-def get_product_by_slug(product_slug):
+
+def get_product_by_slug(category_slug, product_slug):
     """This fucntion is return product by id """
-    product = Product.objects.get(slug=product_slug)
-    return product    
+    if category_slug =="smartphones":
+        product = Smartphones.objects.get(slug = product_slug)
+        return product
+    elif category_slug == "laptops":
+        product = Laptops.objects.get(slug = product_slug)
+        return product
+
+    return None    

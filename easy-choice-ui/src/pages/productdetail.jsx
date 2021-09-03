@@ -10,10 +10,12 @@ import { useParams } from "react-router-dom";
 const ProductDetail = () => {
     const [product, setProduct] = useState("")
     const [isLoad, setLoad] = useState(false)
-    const product_slug = useParams().slug
+    const slug = useParams().slug
     async function FetchProduct(){
+        const category_slug = slug.split("_")[0]
+        const product_slug = slug.split("_")[1]
         setLoad(true)
-        const response = await axios(`http://localhost:8000/api/productdetail/?slug=${product_slug}`)
+        const response = await axios(`http://localhost:8000/api/productdetail/?category_slug=${category_slug}&product_slug=${product_slug}`)
         setProduct(response.data)
         setLoad(false)
     }
