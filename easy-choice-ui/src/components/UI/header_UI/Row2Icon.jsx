@@ -45,7 +45,7 @@ const Row2Icon = () => {
             <div className={classes.row_2_icon}> <img src={icon[1].icon_link} className={classes.icon_image} /></div>
             {isAuth
                 ? (<Fragment>
-                    <div className={classes.row_2_icon}><Link to="/profile"><img src={icon[2].icon_link} className={classes.icon_image} /></Link></div>
+                    <div className={classes.row_2_icon}><Link to="/account"><img src={icon[2].icon_link} className={classes.icon_image} /></Link></div>
                     <div className={classes.row_2_icon} onClick={ () => setModalActive(true)}><img src={icon[3].icon_link} className={classes.icon_image} /></div>
                     <Logout active={modalActive} setActive={setModalActive}/>
                 </Fragment>

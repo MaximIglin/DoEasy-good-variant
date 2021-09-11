@@ -28,3 +28,5 @@ def get_product_by_slug(category_slug, product_slug):
         return Response(serializer.data) 
 
     return None    
+
+    

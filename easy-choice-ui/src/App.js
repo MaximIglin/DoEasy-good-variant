@@ -9,6 +9,7 @@ import Login from './pages/users_system/Login.jsx';
 import Signup from './pages/users_system/Registration.jsx';
 import CategoryDetail from './pages/category_detail.jsx';
 import ProductDetail from './pages/productdetail.jsx';
+import UserPage from './pages/users_system/user_page.jsx';
 
 const App = () => {
   
@@ -42,6 +43,10 @@ const App = () => {
 
       <Route path="/product/:slug">
         <ProductDetail/>
+      </Route>
+
+      <Route exact path="/account">
+        <UserPage/>
       </Route>
 
     </BrowserRouter>

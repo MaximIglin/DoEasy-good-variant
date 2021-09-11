@@ -5,7 +5,8 @@ from .services import get_products_by_category, get_product_by_slug
 class ProductsAPI(APIView):
     """View for all products in request category"""
     def get(self, request):
-        category_slug = self.request.query_params.get('slug')
+        category_slug = self.request.query_params.get('slug') 
+        print(request.META.get('Authorisation'))
         return get_products_by_category(category_slug)
 
 class SmartphonesDetailApi(APIView):

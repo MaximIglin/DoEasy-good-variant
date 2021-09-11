@@ -2,6 +2,8 @@ from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 from .models import CustomUser
 from rest_auth.registration.serializers import RegisterSerializer
+from rest_framework.authtoken.models import Token
+
 
 class UserSerializer(ModelSerializer):
     """This serializer for model User"""
@@ -22,3 +24,12 @@ class CustomUserRegisterSerializer(RegisterSerializer):
         user.last_name = self.data.get('last_name')
         user.save()
         return user
+
+
+
+class MyCustomTokenSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+
+    class Meta:
+        model = Token
+        fields = ('key', 'user')

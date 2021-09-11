@@ -1,6 +1,5 @@
 from django.db import models
 from django.db.models.fields.related import ForeignKey
-from django.utils.translation import deactivate
 from categories.models import Category
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
@@ -75,7 +74,7 @@ class CartProduct(models.Model):
         
 
     def __str__(self) -> str:
-        return (f"Продукт {self.product.name} корзины: {self.cart}")
+        return (f"Продукт {self.content_object.name} корзины: {self.cart}")
 
 
 
@@ -84,7 +83,8 @@ class Cart(models.Model):
     owner = models.ForeignKey('Customer', verbose_name='Владелец', on_delete= models.CASCADE)
     products = models.ManyToManyField(CartProduct, blank=True, related_name="related_carts")
     total_products = models.PositiveIntegerField(default=0)
-    final_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Сумма заказа")
+    final_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Сумма заказа") #метка для завершённой корзины
+    in_order = models.BooleanField(default=False) #корзина заглушка для неатунтифицированных пользователей
     
     class Meta:
         ordering = ['id']
@@ -104,7 +104,7 @@ class Customer(models.Model):
         verbose_name = "Покупатель"
 
     def __str__(self) -> str:
-        return (f"{self.user.first_name}")
+        return (f"Покупатель {self.user.email}")
 
 
 class Smartphones(Product):

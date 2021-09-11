@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     'allauth.account', # новые 
     'allauth.socialaccount', # новые 
     'rest_auth.registration',
+    
+
 
 
     'static_data',

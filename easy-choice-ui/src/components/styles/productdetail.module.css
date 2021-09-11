@@ -1,0 +1,78 @@
+.product_content{
+    font-family: "PT Sans", Helvetica, Arial, sans-serif;
+    margin: auto;
+    margin-top: 20px;
+    width: 85%;
+}
+
+.path{
+    font-size: 22px;
+    font-weight: 600;
+    display:flex;
+    color:slategray;
+}
+a{
+    text-decoration: none;
+    color: slategray;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: black;
+    transition-duration: 200ms;
+}
+
+.information_container{
+    margin-top: 30px;
+    display: flex;
+    
+}
+.main_image{
+    height: 400px;
+    margin-right: 100px;
+}
+
+.data{
+    margin-top: 30px;
+}
+
+.specifications{
+    border-radius: 10px;
+    margin-top: 30px;
+    width: 350px;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+}
+
+.spec_item{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.spec_value{
+    font-size: 18px;
+    color: gray;
+    font-weight: normal;
+}
+
+
+.add_to_cart{
+    height: 60px;
+    width: 100%;
+    margin-top: 30px;
+    border:1px solid black;
+    border-radius: 3px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.add_to_cart:hover{
+    background-color: orangered;
+    color: white;
+    transition-duration: 300ms;
+    cursor: pointer;
+}
