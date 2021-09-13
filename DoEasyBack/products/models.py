@@ -1,9 +1,10 @@
 from django.db import models
 from django.db.models.fields.related import ForeignKey
-from categories.models import Category
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
+
+from categories.models import Category
 
 
 User = get_user_model()
@@ -21,7 +22,6 @@ class Manufacturer_country(models.Model):
 
 class Product(models.Model):
     """This model is describe all products"""
-
     category = models.ForeignKey(Category, verbose_name="Категория", on_delete=models.CASCADE, null=True)
     name = models.CharField("Название товара", max_length=50)
     slug = models.SlugField("Слаг",unique=True, max_length=200, default='')
@@ -36,11 +36,9 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created = models.DateField(auto_now=True)
     
-
     class Meta:
         abstract = True
-        ordering = ['available','id', 'name']
-        
+        ordering = ['available','id', 'name']   
 
     def __str__(self) -> str:
         return self.name    
@@ -57,6 +55,7 @@ class Brand(models.Model):
 
     def __str__(self):
         return self.name   
+
 
 class CartProduct(models.Model):
     """This model is describe products which contain in cart"""
@@ -75,7 +74,6 @@ class CartProduct(models.Model):
 
     def __str__(self) -> str:
         return (f"Продукт {self.content_object.name} корзины: {self.cart}")
-
 
 
 class Cart(models.Model):
@@ -125,7 +123,6 @@ class Smartphones(Product):
 
     class Meta:
         verbose_name = "Смартфоны"
-
 
 
 class Laptops(Product):

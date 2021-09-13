@@ -1,6 +1,7 @@
+from rest_framework.response import Response
+
 from .models import Product, CartProduct, Cart, Customer, Smartphones, Laptops
 from .serializers import SmartphonesSerializer, LaptopsSerializer
-from rest_framework.response import Response
 
 
 def get_products_by_category(category_slug):

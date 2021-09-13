@@ -1,6 +1,8 @@
 from django.urls import path
-from .views import SliderComponentViewSet
 from rest_framework import routers
+
+from .views import SliderComponentViewSet
+
 
 urlpatterns = [ 
     

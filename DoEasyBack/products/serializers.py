@@ -1,4 +1,5 @@
 from rest_framework.serializers import ModelSerializer
+
 from .models import Product, CartProduct, Cart, Customer, Smartphones, Laptops
 
 

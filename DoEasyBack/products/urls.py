@@ -1,5 +1,6 @@
 from django.urls.conf import path
 from rest_framework.routers import SimpleRouter
+
 from .views import ProductsAPI, SmartphonesDetailApi
 
 

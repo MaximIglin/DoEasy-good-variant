@@ -1,4 +1,5 @@
 from rest_framework.views import APIView
+
 from .services import get_products_by_category, get_product_by_slug
 
 
@@ -8,6 +9,7 @@ class ProductsAPI(APIView):
         category_slug = self.request.query_params.get('slug') 
         print(request.META.get('Authorisation'))
         return get_products_by_category(category_slug)
+
 
 class SmartphonesDetailApi(APIView):
     """ViewSet for detail view product"""       

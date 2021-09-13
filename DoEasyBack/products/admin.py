@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import Cart, CartProduct, Customer, Brand, Smartphones, Manufacturer_country, Laptops
 
 
