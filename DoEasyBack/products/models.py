@@ -65,7 +65,7 @@ class CartProduct(models.Model):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
     qty = models.PositiveIntegerField("Количество", default=1)
-    total_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Сумма заказа")
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Сумма заказа", null=True)
 
     class Meta:
         ordering = ['cart','id']

@@ -1,3 +1,4 @@
+from django.apps.config import AppConfig
 from rest_framework.views import APIView
 
 from .services import get_products_by_category, get_product_by_slug
@@ -17,6 +18,9 @@ class SmartphonesDetailApi(APIView):
         category_slug = self.request.query_params.get('category_slug')
         product_slug = self.request.query_params.get('product_slug')
         return get_product_by_slug(category_slug, product_slug)
+
+
+       
         
 
 
