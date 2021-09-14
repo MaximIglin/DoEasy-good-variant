@@ -3,7 +3,13 @@ import classes from "./productItem.module.css"
 import { Link } from "react-router-dom";
 
 
+
 const ProductItem = (props) => {
+
+
+
+
+
     return(
         <Link to={`/product/${props.product.category_slug}_${props.product.slug}`} style={{ textDecoration: 'none', color:"black"}}>
             <div className={classes.product_item}>

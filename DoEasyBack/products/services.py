@@ -1,7 +1,9 @@
 from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
 
 from .models import Product, CartProduct, Cart, Customer, Smartphones, Laptops
 from .serializers import SmartphonesSerializer, LaptopsSerializer
+
 
 
 def get_products_by_category(category_slug):
@@ -30,4 +32,10 @@ def get_product_by_slug(category_slug, product_slug):
 
     return None    
 
+
+def get_user_by_jwt(request):
+    print(request.headers.get('Authorization'))
+    request_token = request.headers.get('Authorization')
+    token = Token.objects.get(key = request_token)
+    return token.user
     

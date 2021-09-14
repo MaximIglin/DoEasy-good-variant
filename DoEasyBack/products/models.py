@@ -3,8 +3,11 @@ from django.db.models.fields.related import ForeignKey
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 from categories.models import Category
+from user.models import CustomUser
 
 
 User = get_user_model()
@@ -76,12 +79,32 @@ class CartProduct(models.Model):
         return (f"Продукт {self.content_object.name} корзины: {self.cart}")
 
 
+class Customer(models.Model):
+    """This models is describe customer"""
+    user = models.OneToOneField(User, verbose_name="Пользователь", on_delete=models.CASCADE, primary_key=True)
+    phone = models.CharField(max_length=20, verbose_name="Номер телефона", blank=True, null = True)
+
+    class Meta:
+        ordering = ['user']
+        verbose_name = "Покупатель"
+
+    def __str__(self) -> str:
+        return (f"Покупатель {self.user.email}")
+
+
+@receiver(post_save, sender = CustomUser) 
+def update_customer_signal(sender, instance, created, ** kwargs): 
+    if created:      
+        new_customer = Customer.objects.create(user = instance) 
+        new_customer.save()
+
+
 class Cart(models.Model):
     """This model is describe cart of customer"""
     owner = models.ForeignKey('Customer', verbose_name='Владелец', on_delete= models.CASCADE)
     products = models.ManyToManyField(CartProduct, blank=True, related_name="related_carts")
     total_products = models.PositiveIntegerField(default=0)
-    final_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Сумма заказа") #метка для завершённой корзины
+    final_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Сумма заказа",default=0) #метка для завершённой корзины
     in_order = models.BooleanField(default=False) #корзина заглушка для неатунтифицированных пользователей
     
     class Meta:
@@ -91,18 +114,11 @@ class Cart(models.Model):
     def __str__(self) -> str:
         return (f"Корзина пользователя {self.owner}")
 
-
-class Customer(models.Model):
-    """This models is describe customer"""
-    user = ForeignKey(User, verbose_name="Пользователь", on_delete=models.CASCADE)
-    phone = models.CharField(max_length=20, verbose_name="Номер телефона", blank=True)
-
-    class Meta:
-        ordering = ['user']
-        verbose_name = "Покупатель"
-
-    def __str__(self) -> str:
-        return (f"Покупатель {self.user.email}")
+@receiver(post_save, sender = Customer) 
+def update_cart_signal(sender, instance, created, ** kwargs): 
+    if created:      
+        new_cart = Cart.objects.create(owner = instance) 
+        new_cart.save() 
 
 
 class Smartphones(Product):

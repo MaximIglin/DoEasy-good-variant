@@ -24,6 +24,8 @@ const ProductDetail = () => {
         FetchProduct()
     }, [])
 
+
+
     return(
         <div>
             <Header/>
@@ -46,7 +48,7 @@ const ProductDetail = () => {
                             <p className={classes.spec_item}>Диагональ дисплея:<span>{product.display_diagnal}</span></p>
                             <p className={classes.spec_item}>Разршение экрана:<span>{product.screen_resolution}</span></p>
                             <p className={classes.spec_item}>Страна производитель:<span>{product.manufecture_country}</span></p>
-                            <div className={classes.add_to_cart}>Добавить в корзину</div>    
+                            <div className={classes.add_to_cart} >Добавить в корзину</div>    
                         </div>
                     </div>
                 </div>

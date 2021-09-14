@@ -1,5 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
+
 from .models import Product, CartProduct, Cart, Customer, Smartphones, Laptops
 
 
@@ -31,4 +32,23 @@ class LaptopsSerializer(ModelSerializer):
         rep['brand'] = instance.brand.name
         rep['manufecture_country'] = instance.manufecture_country.name        
         return rep
-                
+
+
+class CartProductSerializer(ModelSerializer):
+    class Meta:
+        model = CartProduct
+        fields = "__all__"
+
+class CartSerizlizer(ModelSerializer):
+    """This serializer for cart model"""
+
+    products = CartProductSerializer(many=True)
+
+    class Meta:
+        model = Cart
+        fields = "__all__"
+
+    def to_representation(self, instance):
+        rep = super(CartSerizlizer, self).to_representation(instance)
+        rep['owner'] = instance.owner.user.first_name        
+        return rep    
