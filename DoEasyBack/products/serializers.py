@@ -1,7 +1,8 @@
 from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 
 
-from .models import Product, CartProduct, Cart, Customer, Smartphones, Laptops
+from .models import CartProduct, Cart, Customer, Smartphones, Laptops
 
 
 class SmartphonesSerializer(ModelSerializer):
@@ -34,16 +35,15 @@ class LaptopsSerializer(ModelSerializer):
         return rep
 
 
-class CartProductSerializer(ModelSerializer):
+class CartProductSerializer(serializers.ModelSerializer):
+    """This serializer for Cart-product model"""
     class Meta:
         model = CartProduct
         fields = "__all__"
 
+
 class CartSerizlizer(ModelSerializer):
     """This serializer for cart model"""
-
-    products = CartProductSerializer(many=True)
-
     class Meta:
         model = Cart
         fields = "__all__"

@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.fields.related import ForeignKey
 from django.contrib.auth import get_user_model
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
@@ -136,7 +135,6 @@ class Smartphones(Product):
     rom = models.PositiveIntegerField("Встроенной памяти (GB)", null=True)
     battery_capacity = models.CharField("Ёмкость аккумулятора",max_length=20, null = True)
     
-
     class Meta:
         verbose_name = "Смартфоны"
 

@@ -5,7 +5,6 @@ from .models import Product, CartProduct, Cart, Customer, Smartphones, Laptops
 from .serializers import SmartphonesSerializer, LaptopsSerializer
 
 
-
 def get_products_by_category(category_slug):
     """This fuction is return all products by accepted category"""
     if category_slug == "smartphones":
@@ -29,13 +28,20 @@ def get_product_by_slug(category_slug, product_slug):
         product = Laptops.objects.get(slug = product_slug)
         serializer = LaptopsSerializer(product)
         return Response(serializer.data) 
+    return None
 
-    return None    
+
+def get_cart_products_by_customer(user):
+    """This function is return all products in user's cart"""
+    customer = Customer.objects.get(user = user)
+    cart = Cart.objects.get(owner = customer)
+    products = CartProduct.objects.filter(cart = cart)
+    return products
 
 
-def get_user_by_jwt(request):
-    print(request.headers.get('Authorization'))
-    request_token = request.headers.get('Authorization')
+def get_user_by_jwt(self, request):
+    """This function is return user by jwt-token"""
+    request_token = self.request.headers.get('Authorization')
     token = Token.objects.get(key = request_token)
     return token.user
     
