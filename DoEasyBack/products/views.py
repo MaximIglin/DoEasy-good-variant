@@ -1,16 +1,17 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import CartProduct, Customer, Cart, Laptops, Smartphones
-from .services import get_products_by_category, get_product_by_slug, get_user_by_jwt, get_cart_products_by_customer
-from .serializers import LaptopsSerializer
+from .services import (get_products_by_category, get_product_by_slug,
+                       get_user_by_jwt,get_cart_products_queryset_by_customer, 
+                       get_cart_products_array_by_customer, add_product_to_cart,
+                       delete_product_in_cart
+                       )
 
 
 class ProductsAPI(APIView):
     """View for all products in request category"""
     def get(self, request):
         category_slug = self.request.query_params.get('slug') 
-        print(request.META.get('Authorisation'))
         return get_products_by_category(category_slug)
 
 
@@ -22,39 +23,20 @@ class SmartphonesDetailApi(APIView):
         return get_product_by_slug(category_slug, product_slug)
 
 
-
-################################################### КОРЗИНА #########################################################################
 class AddToCard(APIView):
     """This API for add cart-product into customer-cart"""
-
     def get(self, request):
         user = get_user_by_jwt(self, request)
-        products = get_cart_products_by_customer(user)
-        all_products = []
-        for product in products:
-            if str(product.content_object.category) == "Ноутбуки":
-                all_products.append(LaptopsSerializer(Laptops.objects.get(name = product.content_object.name) ).data)
+        products = get_cart_products_queryset_by_customer(user)
+        all_products = get_cart_products_array_by_customer(products)
         return Response({'products':all_products})
         
-
     def post(self, request):
-        user = get_user_by_jwt(self, request)
-        customer = Customer.objects.get(user = user)
-        cart = Cart.objects.get(owner = customer)
-        product_id = self.request.data['product_id']
-        sum_of = self.request.data['price']
-        cart_product = CartProduct.objects.create(user = customer, cart = cart, content_object = Laptops.objects.get(id=product_id))
-        print(cart_product.content_object)
-        cart.products.add(cart_product)
+        add_product_to_cart(self, request)
         return Response({"response":"ok"})
 
     def delete(self, request):
-        product_for_delete = self.request.data['product']
-        user = get_user_by_jwt(self, request)
-        products = get_cart_products_by_customer(user)
-        for product in products:
-            if str(product.content_object.name) == product_for_delete:
-                product.delete()
+        delete_product_in_cart()
         return Response({"response":"ok"})        
 
 
